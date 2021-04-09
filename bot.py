@@ -47,7 +47,8 @@ async def team(ctx, game=None, *args):
     elif game == 'lol':
         category = guild.get_channel(lol_category_id)
     else:
-        await ctx.send("Not a valid game! `val` or `lol`")
+        message = "Not a valid game! `val` or `lol`"
+        await ctx.send(embed=await embeds.missing_param_error(message))
         return
 
     # game coordinator role
@@ -71,7 +72,7 @@ async def team(ctx, game=None, *args):
 
         # if not found
         if not found:
-            await ctx.send(f"Couldn't find user: {team_member}")
+            await ctx.send(f"Couldn't find user: `{team_member}`")
 
     # overwrites for the match channel
     overwrites = {

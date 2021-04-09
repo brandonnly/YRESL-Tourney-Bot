@@ -75,7 +75,7 @@ async def purged():
     embed = discord.Embed(color=discord.Colour.green())
     # set title field
     embed.add_field(name=f"Purged!",
-                    value=f"All inactive tournament channels were purged.")
+                    value=f"All LOL and VAL team channels were purged.")
     # set footer
     embed.set_footer(icon_url=footer_icon,
                      text=f"{tourney_name} | {footer_note}")
