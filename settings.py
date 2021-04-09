@@ -7,7 +7,7 @@ load_dotenv(dotenv_path)
 
 BOT_TOKEN = os.getenv("DISCORD_TOKEN")
 
-tourney_name = "December 2020 Smash Ult. Monthly"
+tourney_name = "YRESL April Break 2021 Tournaments"
 footer_note = "Ping Brandon for help."
 footer_icon = "https://image.brandonly.me/yresllogo.png"
 rulebook_url = "http://bit.ly/YRESLRulebook"  # url to rulebook

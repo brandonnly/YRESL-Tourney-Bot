@@ -40,21 +40,25 @@ async def team(ctx, game, *args):
     # game coordinator role
     exec_role = guild.get_role(exec_role_id)
 
-    print(args)
-
     # create the role
     name = f"{game.upper()} TEAM: {'-'.join(args)}"
     team_role = await guild.create_role(name=name)
 
-    print(f"XD: {guild.members}")
-
+    # loop through members and server members
     for team_member in args:
-        print(f"Args: {team_member.lower()}")
+        found = False
         for member in guild.members:
-            print(f"Member: {member.name.lower()}")
+            # check if their names match
             if team_member.lower() == member.name.lower():
-                print("true")
+                # add role if they match
                 await member.add_roles(team_role)
+                # let loop know they were found and break
+                found = True
+                break
+
+        # if not found
+        if not found:
+            await ctx.send(f"Couldn't find user: {team_member}")
 
     # overwrites for the match channel
     overwrites = {
