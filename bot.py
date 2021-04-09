@@ -22,7 +22,7 @@ bot = discord.ext.commands.Bot(command_prefix=prefix,
 
 
 @bot.command()
-async def team(ctx, game=None, *args):
+async def team(ctx, game=None, team_message=None):
     """
     Creates a private text channel between you and your opponent(s)
     """
@@ -34,7 +34,7 @@ async def team(ctx, game=None, *args):
         return
 
     # exit if no teams
-    if len(args) == 0:
+    if team_message is None:
         message = "You didn't list any members!"
         await ctx.send(embed=await embeds.missing_param_error(message))
         return
@@ -51,15 +51,18 @@ async def team(ctx, game=None, *args):
         await ctx.send(embed=await embeds.missing_param_error(message))
         return
 
+    # create team
+    team_entry = team_message.split('=+=')
+
     # game coordinator role
     exec_role = guild.get_role(exec_role_id)
 
     # create the role
-    name = f"{game.upper()} TEAM: {'-'.join(args)}"
+    name = f"{game.upper()} TEAM: {'-'.join(team_entry)}"
     team_role = await guild.create_role(name=name)
 
     # loop through members and server members
-    for team_member in args:
+    for team_member in team_entry:
         found = False
         for member in guild.members:
             # check if their names match
@@ -94,7 +97,7 @@ async def team(ctx, game=None, *args):
 
     # create channel
     name = team_role.name[4:]
-    topic = team_role.name
+    topic = f"{team_role.name[:10]} {' | '.join(team_entry)}"
     team_channel = await guild.create_text_channel(name=name,
                                                     category=category,
                                                     topic=topic,
