@@ -22,10 +22,23 @@ bot = discord.ext.commands.Bot(command_prefix=prefix,
 
 
 @bot.command()
-async def team(ctx, game, *args):
+async def team(ctx, game=None, *args):
     """
     Creates a private text channel between you and your opponent(s)
     """
+
+    # exit if no game
+    if game is None:
+        message = "You didn't pick a game! `val` or `lol`"
+        await ctx.send(embed=await embeds.missing_param_error(message))
+        return
+
+    # exit if no teams
+    if len(args) == 0:
+        message = "You didn't list any members!"
+        await ctx.send(embed=await embeds.missing_param_error(message))
+        return
+
     # guild and category objects
     guild = bot.get_guild(guild_id)
     category = None
