@@ -19,7 +19,7 @@ description = "Tournament Bot for YRESL"
 
 # tourney categories
 val_category_id = 829803831767334932
-lol_category_id = 829803675308130315 
+lol_category_id = 830256230370770976 
 guild_id = 822264218492862504
 exec_role_id = 822264218546864134
 
