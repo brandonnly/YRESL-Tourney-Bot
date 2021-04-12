@@ -22,7 +22,7 @@ bot = discord.ext.commands.Bot(command_prefix=prefix,
 
 
 @bot.command()
-async def team(ctx, game=None, team_message=None):
+async def team(ctx, game=None, *, team_message=None):
     """
     Creates a private text channel between you and your opponent(s)
     """
