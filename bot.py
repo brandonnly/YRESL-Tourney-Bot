@@ -111,7 +111,6 @@ async def team(ctx, game=None, *, team_message=None):
 
 
 @bot.command()
-@commands.has_permissions(administrator=True)
 async def purge(ctx):
     """
     Purges all channels in the inactive category
