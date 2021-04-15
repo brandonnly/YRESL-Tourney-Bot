@@ -27,7 +27,7 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 
     if (command === 'team') {
-        client.commands.get("team").execute("message, args, client, Discord ")
+        client.commands.get("team").execute("message, args, client, Discord, prefix")
     }
 
 });
