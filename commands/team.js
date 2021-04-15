@@ -23,9 +23,9 @@ module.exports = {
         }
         message.guild.roles.create({
             data: {
-                name: 'Owner',
-                color: 'YELLOW',
-                permissions: [AdminP, ServerMP],
+                name: Team_MembersList,
+                color: '',
+                permissions: [],
             },
             reason: 'we needed a role for Super Cool People',
         });
