@@ -18,7 +18,7 @@ prefix = "yr!"
 description = "Tournament Bot for YRESL"
 
 # tourney categories
-val_category_id = 829803831767334932
+val_category_id = 830257367840849930
 lol_category_id = 829803675308130315
 guild_id = 822264218492862504
 exec_role_id = 822264218546864134
