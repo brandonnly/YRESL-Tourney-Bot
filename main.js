@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = 'yr!';
+require('dotenv').config();
+const prefix = process.env.PREFIX;
 const fs = require('fs');
 
 client.commands = new Discord.Collection();
@@ -33,4 +34,4 @@ client.on('message', message => {
 });
 
 
-client.login('');
+client.login(process.env.TOKEN);
